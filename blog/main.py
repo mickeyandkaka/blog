@@ -1,11 +1,9 @@
-from flask import Flask
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
-app = Flask(__name__)
+from views import app
 
-@app.route("/")
-def hello():
-    return "Hello World!"
-
+DEBUG=True
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=DEBUG)
