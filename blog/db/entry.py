@@ -1,6 +1,4 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 
 class Entry(db.Model):
     id = db.Column(db.Integer, primary_key=True)
