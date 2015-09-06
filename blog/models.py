@@ -16,7 +16,7 @@ class Role(db.Model, RoleMixin):
     description = db.Column(db.String(255))
 
     def __str__(self):
-        return '<Role role_id:%s, role_name:%s>' % (self.role_id, self.role_name)
+        return '<Role role_id:%s, role_name:%s>' % (self.role_id, self.name)
 
 
 class User(db.Model, UserMixin):
