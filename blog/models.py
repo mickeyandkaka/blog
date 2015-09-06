@@ -12,7 +12,7 @@ roles_users = db.Table(
 
 class Role(db.Model, RoleMixin):
     role_id = db.Column(db.Integer(), primary_key=True)
-    role_name = db.Column(db.String(80), unique=True)
+    name = db.Column(db.String(15), unique=True)
     description = db.Column(db.String(255))
 
     def __str__(self):
@@ -21,12 +21,11 @@ class Role(db.Model, RoleMixin):
 
 class User(db.Model, UserMixin):
     user_id = db.Column(db.Integer, primary_key=True)
-    user_name = db.Column(db.String(64))
-    password = db.Column(db.String(1024))
+    user_name = db.Column(db.String(63))
+    password = db.Column(db.String(1023))
     active = db.Column(db.Boolean())
     create_time = db.Column(db.DateTime())
-    roles = db.relationship('Role', secondary=roles_users,
-                            backref=db.backref('users', lazy='dynamic'))
+    roles = db.relationship('Role', secondary=roles_users)
 
     def __str__(self):
         return '<User user_id:%s, user_name:%s>' % (self.user_id, self.user_name)
