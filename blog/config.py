@@ -2,6 +2,7 @@
 
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.admin import Admin
 
 from secure import (DB_USERNAME, DB_USERPASS, DB_HOST,
                     DB_PORT, DB_NAME, SECRET_KEY,
@@ -21,4 +22,6 @@ class ProductionConfig(object):
 
 app = Flask(__name__)
 app.config.from_object(ProductionConfig)
+
+admin = Admin(app)
 db = SQLAlchemy(app)
