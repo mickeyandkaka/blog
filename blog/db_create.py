@@ -23,7 +23,7 @@ with app.app_context():
     db.session.commit()
 
     test_user = user_datastore.create_user(
-        user_name='admin',
+        username='admin',
         password=encrypt_password('admin'),
         active=True,
         roles=[user_role, super_user_role],
